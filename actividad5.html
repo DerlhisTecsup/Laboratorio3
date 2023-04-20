@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link href="style.css" rel="stylesheet" />
+    <title>Casa de Cambio</title>
+    <h1 class="casa">CASA DE CAMBIO</h1>
+    <p class="p">Seleccionar moneda a enviar:</p>
+    <script>
+      function cotizar() {
+        var num1 = parseInt(document.getElementById("monto").value || 0);
+        var opciones = document.getElementsByName("eleccion");
+        var cambioDolar = 3.7;
+        var cambioEuro = 4;
+        for (let i = 0; i < opciones.length; i++) {
+          if (opciones[i].checked) {
+            if (opciones[i].value === "dolar") {
+              alert(num1 * cambioDolar + " soles");
+            } else if (opciones[i].value === "euro") {
+              alert(num1 * cambioEuro + " soles");
+            } else {
+              alert(num1 + " soles");
+            }
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="contenedor">
+      <input type="radio" name="eleccion" value="dolar" checked />dolar <br />
+      <input type="radio" name="eleccion" value="euro" checked />euro <br />
+      <input type="radio" name="eleccion" value="soles" checked />soles <br />
+    </div>
+    <p class="p2">
+      Ingrese Monto:
+      <input type="text" id="monto" />
+      <button class="cotizar1" type="button" onclick="cotizar()">
+        cotizar
+      </button>
+    </p>
+  </body>
+</html>
